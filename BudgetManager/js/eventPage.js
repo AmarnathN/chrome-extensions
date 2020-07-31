@@ -45,3 +45,8 @@ chrome.contextMenus.onClicked.addListener(function (clickData) {
     }
   }
 });
+
+chrome.storage.onChanged.addListener(function (changes, storageName) {
+  console.log(changes);
+  chrome.browserAction.setBadgeText({ text: changes.total.newValue.toString() });
+});
